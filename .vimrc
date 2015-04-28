@@ -2,6 +2,18 @@ if &compatible
     set nocompatible
 endif
 
+" Vundle
+filetype off "temporarily
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+
+" List of plugins:
+Plugin 'rust-lang/rust.vim'
+
+call vundle#end()
+filetype plugin indent on
+
 " Display settings
 syn on
 set hlsearch
@@ -35,16 +47,16 @@ function! Get_visual_selection()
 endfun
 
 " Pyclewn
-map <F5> :exe "Ccontinue" <CR>
-map <F9> :exe "Cbreak " . expand("%.p") . ":" . line(".") <CR>
-map \<F9> :exe "Cclear " . expand("%.p") . ":" . line(".") <CR>
-map <F10> :exe "Cnext" <CR>
-map <F11> :exe "Cstep" <CR>
-map \<F11> :exe "Cfinish" <CR>
-map <F12> <C-W><C-]>
-nmap <C-P> :exe "Cprint " . expand("<cword>") <CR>
-vmap <C-P> <Esc> :exe "Cprint " . Get_visual_selection() <CR>
-map <C-L> :exe "Cinfo locals" <CR>
-map <C-A> :exe "Cinfo args" <CR>
-map <C-X> :exe "Cfoldvar " . line(".") <CR>
-vmap <C-X> <Esc> :exe "Cfoldvar " . Get_visual_selection() <CR>
+"map <F5> :exe "Ccontinue" <CR>
+"map <F9> :exe "Cbreak " . expand("%.p") . ":" . line(".") <CR>
+"map \<F9> :exe "Cclear " . expand("%.p") . ":" . line(".") <CR>
+"map <F10> :exe "Cnext" <CR>
+"map <F11> :exe "Cstep" <CR>
+"map \<F11> :exe "Cfinish" <CR>
+"map <F12> <C-W><C-]>
+"nmap <C-P> :exe "Cprint " . expand("<cword>") <CR>
+"vmap <C-P> <Esc> :exe "Cprint " . Get_visual_selection() <CR>
+"map <C-L> :exe "Cinfo locals" <CR>
+"map <C-A> :exe "Cinfo args" <CR>
+"map <C-X> :exe "Cfoldvar " . line(".") <CR>
+"vmap <C-X> <Esc> :exe "Cfoldvar " . Get_visual_selection() <CR>
