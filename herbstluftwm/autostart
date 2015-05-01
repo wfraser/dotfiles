@@ -8,6 +8,10 @@ hc() {
 
 hc emit_hook reload
 
+if [[ `hostname` = "calcium" ]]; then
+    xcalib ~/colorprofiles/Color\ LCD-4271580.icc
+fi
+
 #xsetroot -solid '#5A8E3A'
 feh --bg-scale ~/Synced\ Wallpapers/the_archer_2560.png
 
