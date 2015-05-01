@@ -70,7 +70,6 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 
-source ~/.git_prompt.sh
 prompt walters
 
 # End of lines added by compinstall
