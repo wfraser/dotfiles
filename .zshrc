@@ -8,11 +8,15 @@ alias vlock='clear && vlock'
 alias qmake3='/usr/qt/3/bin/qmake'
 alias pine='alpine'
 alias xelatexmk="latexmk -e '\$pdflatex=\"xelatex\"' -pdf"
-alias make='make -j5'
 alias music='ncmpcpp'
+
+ncpus=`grep ^processor /proc/cpuinfo | wc -l`
+alias make="make -j$((ncpus + 1))"
 
 if [ "$HOST" = "odin" ]; then
     alias dstat='dstat -cdnmgy -N ethx0,ethi0'
+elif [ "$HOST" = "sfo-arch1" ]; then
+    alias dstat='dstat -cdnmgy -N eth0,eth1'
 else
     alias dstat='dstat -cdnmgy'
 fi
