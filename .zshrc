@@ -9,6 +9,7 @@ alias qmake3='/usr/qt/3/bin/qmake'
 alias pine='alpine'
 alias xelatexmk="latexmk -e '\$pdflatex=\"xelatex\"' -pdf"
 alias music='ncmpcpp'
+alias sshfs='sshfs -o reconnect'
 
 ncpus=`grep ^processor /proc/cpuinfo | wc -l`
 alias make="make -j$((ncpus + 1))"
