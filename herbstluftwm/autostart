@@ -13,7 +13,7 @@ if [[ `hostname` = "calcium" ]]; then
 fi
 
 #xsetroot -solid '#5A8E3A'
-feh --bg-scale ~/Synced\ Wallpapers/the_archer_2560.png
+feh --bg-fill ~/Synced\ Wallpapers/the_archer_2560.png
 
 xrdb -merge ~/.Xresources
 
