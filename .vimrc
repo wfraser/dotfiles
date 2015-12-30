@@ -2,6 +2,9 @@ if &compatible
     set nocompatible
 endif
 
+let mapleader = "-"
+let maplocalleader = "\\"
+
 " Vundle
 filetype off "temporarily
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -27,6 +30,12 @@ set showcmd
 set ruler
 set title
 set wildmenu
+set colorcolumn=100
+
+" Theme
+set t_Co=256
+colorscheme onedark
+hi ColorColumn ctermbg=234
 
 " Editor settings
 set autoindent
