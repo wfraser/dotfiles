@@ -37,6 +37,10 @@ set t_Co=256
 colorscheme onedark
 hi ColorColumn ctermbg=234
 
+" For slow terminals:
+"set t_Co=8
+"set cc=0
+
 " Editor settings
 set autoindent
 set smartindent
