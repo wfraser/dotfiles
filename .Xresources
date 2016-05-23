@@ -18,11 +18,17 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 !URxvt.font: 6x13
-URxvt.font: xft:Dina:size=9
-URxvt.boldFont: xft:Dina:size=9:style=bold
-URxvt.italicFont: xft:Dina:size=9:style=italic
-URxvt.boldItalicFont: xft:Dina:size=9:style=bolditalic
-!URxvt.font: xft:Inconsolata:size=6
+#if defined(CLNT_WRFATHENAVM)
+    URxvt.font: xft:Inconsolata:size=15
+    URxvt.boldFont: xft:Inconsolata:size=15:style=bold
+    URxvt.italicFont: xft:Inconsolata:size=15:style=italic
+    URxvt.boldItalicFont: xft:Inconsolata:size=15:style=bolditalic
+#else
+    URxvt.font: xft:Dina:size=9
+    URxvt.boldFont: xft:Dina:size=9:style=bold
+    URxvt.italicFont: xft:Dina:size=9:style=italic
+    URxvt.boldItalicFont: xft:Dina:size=9:style=bolditalic
+#endif
 !URxvt.letterSpace: -1
 
 URxvt*keysym.Home: \033[1~
