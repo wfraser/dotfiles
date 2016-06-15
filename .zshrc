@@ -1,9 +1,22 @@
+MACOS=false
+if [ $(uname -s) = "Darwin" ]; then
+    MACOS=true
+fi
+
+if [ $HOST = "wfraser-mbp.corp.dropbox.com" ]; then
+    # pull in some environment variables saved here
+    . ~/.bash_profile
+fi
+
 alias vi="vim"
 alias cd..="cd .."
 alias ll="ls -al"
-alias ls='ls --color=auto'
+if $MACOS; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color=auto'
+fi
 alias grep='grep --colour=auto'
-alias lastaddr='last -i | perl -we '\''use Socket; while (<>) { chop; s/(\d+\.\d+\.\d+\.\d+)/defined($addr = gethostbyaddr(inet_aton("$1"), AF_INET)) ? $addr : "$1"/e; print "$_\n"; }'\'
 alias vlock='clear && vlock'
 alias qmake3='/usr/qt/3/bin/qmake'
 alias pine='alpine'
@@ -11,7 +24,12 @@ alias xelatexmk="latexmk -e '\$pdflatex=\"xelatex\"' -pdf"
 alias music='ncmpcpp'
 alias sshfs='sshfs -o reconnect'
 
-ncpus=`grep ^processor /proc/cpuinfo | wc -l`
+if $MACOS; then
+    ncpus=`sysctl -n hw.ncpu`
+else
+    ncpus=`grep ^processor /proc/cpuinfo | wc -l`
+fi
+
 alias make="make -j$((ncpus + 1))"
 
 if [ "$HOST" = "odin" ]; then
@@ -51,7 +69,9 @@ function git-rev-number()
 
 export EDITOR="/usr/bin/vim"
 
-export PATH="$PATH:/usr/local/bin:/opt/java/bin:/home/wfraser/bin:/home/wfraser/shellscripts:/home/wfraser/.gem/ruby/2.0.0/bin"
+if [ $HOST = "odin" ]; then
+    export PATH="$PATH:/usr/local/bin:/opt/java/bin:/home/wfraser/bin:/home/wfraser/shellscripts:/home/wfraser/.gem/ruby/2.0.0/bin"
+fi
 
 # Commands that start with a space are excluded from history! :)
 setopt HIST_IGNORE_SPACE
