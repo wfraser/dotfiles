@@ -1,3 +1,5 @@
+source /etc/profile
+
 MACOS=false
 if [ $(uname -s) = "Darwin" ]; then
     MACOS=true
@@ -5,7 +7,7 @@ fi
 
 if [ $HOST = "wfraser-mbp.corp.dropbox.com" ]; then
     # pull in some environment variables saved here
-    . ~/.bash_profile
+    source ~/.bash_profile
 fi
 
 alias vi="vim"
