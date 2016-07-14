@@ -6,7 +6,6 @@ let mapleader = "-"
 let maplocalleader = "\\"
 
 " Vundle
-filetype off "temporarily
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
