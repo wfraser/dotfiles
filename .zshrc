@@ -26,6 +26,14 @@ alias xelatexmk="latexmk -e '\$pdflatex=\"xelatex\"' -pdf"
 alias music='ncmpcpp'
 alias sshfs='sshfs -o reconnect'
 
+function goto() {
+    if [ -x ~/goto/target/debug/goto ]; then
+        eval $(~/goto/target/debug/goto $*)
+    else
+        eval $(~/.cargo/bin/goto $*)
+    fi
+}
+
 if $MACOS; then
     ncpus=`sysctl -n hw.ncpu`
 else
