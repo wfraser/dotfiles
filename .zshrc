@@ -50,14 +50,12 @@ else
     alias dstat='dstat -cdnmgy'
 fi
 
-function bx()
-{
+function bx() {
     $@ 1>/dev/null 2>/dev/null &
     return 0
 }
 
-function git-rev-number()
-{ 
+function git-rev-number() {
     commit=""
     if [[ $1 == "" ]]; then
         commit=`git show HEAD | head -1 | cut -d" " -f2`
@@ -76,6 +74,9 @@ function git-rev-number()
     return 0
 }
 
+function diffstat() {
+    git show $* | awk '/^\+/{add++}/^-/{del++}END{print"+"add",-"del}'
+}
 
 export EDITOR="/usr/bin/vim"
 
