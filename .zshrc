@@ -35,9 +35,9 @@ function goto() {
 }
 
 if $MACOS; then
-    ncpus=`sysctl -n hw.ncpu`
+    ncpus=$(sysctl -n hw.ncpu)
 else
-    ncpus=`grep ^processor /proc/cpuinfo | wc -l`
+    ncpus=$(grep '^processor' /proc/cpuinfo | wc -l)
 fi
 
 alias make="make -j$((ncpus + 1))"
@@ -78,11 +78,18 @@ function diffstat() {
     git show $* | awk '/^\+/{add++}/^-/{del++}END{print"+"add",-"del}'
 }
 
+if [ ! -z $(grep '^/dev/ttyS' <<<$TTY) ]; then
+    resize
+fi
+
 export EDITOR="/usr/bin/vim"
 
 if [ $HOST = "odin" ]; then
     export PATH="$PATH:/usr/local/bin:/opt/java/bin:/home/wfraser/bin:/home/wfraser/shellscripts:/home/wfraser/.gem/ruby/2.0.0/bin"
 fi
+
+gpg-agent --daemon --allow-preset-passphrase 2>/dev/null
+export GPG_TTY="$TTY"
 
 # Commands that start with a space are excluded from history! :)
 setopt HIST_IGNORE_SPACE
@@ -121,11 +128,6 @@ bindkey '^[[H' vi-beginning-of-line
 bindkey '^[[4~' vi-end-of-line
 bindkey '^[[F' vi-end-of-line
 bindkey '^[[3~' delete-char
-
-#PROMPT="$PROMPT $(prompt_git_info)%{${fg[default]}%}"
-#PS1="$PS1 $(prompt_git_info)%{${fg[default]}%}"
-
-#precmd () { __git_ps1 "%B%(?..[%?] )%b%n@%U%m%u" "> " " (%s)" }
 
 if [ -x "$HOME/reminders" ]; then
     $HOME/reminders
