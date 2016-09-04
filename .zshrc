@@ -20,15 +20,19 @@ else
 fi
 alias grep='grep --colour=auto'
 alias vlock='clear && vlock'
-alias qmake3='/usr/qt/3/bin/qmake'
 alias pine='alpine'
 alias xelatexmk="latexmk -e '\$pdflatex=\"xelatex\"' -pdf"
 alias music='ncmpcpp'
 alias sshfs='sshfs -o reconnect'
+alias nvlc='vlc --intf=ncurses'
+
+if $MACOS; then
+    alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+fi
 
 function goto() {
-    if [ -x ~/goto/target/debug/goto ]; then
-        eval $(~/goto/target/debug/goto $*)
+    if [ -x ~/src/goto/target/debug/goto ]; then
+        eval $(~/src/goto/target/debug/goto $*)
     else
         eval $(~/.cargo/bin/goto $*)
     fi
@@ -58,13 +62,13 @@ function bx() {
 function git-rev-number() {
     commit=""
     if [[ $1 == "" ]]; then
-        commit=`git show HEAD | head -1 | cut -d" " -f2`
+        commit=`git rev-list -n1 HEAD`
         #echo "usage: git-rev-number <commit-id>"
         #return 1
     else
         commit=$1
     fi
-    number=`git rev-list --reverse HEAD | grep -n $commit | cut -d: -f1`
+    number=`git rev-list --reverse HEAD | grep -n "^$commit" | cut -d: -f1`
     if [[ $number == "" ]]; then
         echo "commit not found"
         return 1
@@ -75,7 +79,11 @@ function git-rev-number() {
 }
 
 function diffstat() {
-    git show $* | awk '/^\+/{add++}/^-/{del++}END{print"+"add",-"del}'
+    git show --format= --numstat $* | awk '{add+=$1;del+=$2}END{print"+"add",-"del}'
+}
+
+function allstat() {
+    git log --format= --numstat $* | awk '{add+=$1;del+=$2}END{print"+"add",-"del}'
 }
 
 if [ ! -z $(grep '^/dev/ttyS' <<<$TTY) ]; then
@@ -88,7 +96,11 @@ if [ $HOST = "odin" ]; then
     export PATH="$PATH:/usr/local/bin:/opt/java/bin:/home/wfraser/bin:/home/wfraser/shellscripts:/home/wfraser/.gem/ruby/2.0.0/bin"
 fi
 
-gpg-agent --daemon --allow-preset-passphrase 2>/dev/null
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$PATH:$HOME/.cargo/bin"
+fi
+
+eval $(gpg-agent --daemon --allow-preset-passphrase 2>/dev/null)
 export GPG_TTY="$TTY"
 
 # Commands that start with a space are excluded from history! :)
