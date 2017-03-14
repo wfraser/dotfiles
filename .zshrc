@@ -95,6 +95,20 @@ if [ $HOST = "odin" ]; then
     export PATH="$PATH:/home/wfraser/bin:/home/wfraser/shellscripts"
 fi
 
+if [ -d $HOME/.cargo/bin ]; then
+    export PATH="$PATH:$HOME/.cargo/bin"
+fi
+
+if [ -d $HOME/.multirust/toolchains ]; then
+    for toolchain in $HOME/.multirust/toolchains/*; do
+        if $MACOS; then
+            export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$toolchain/lib"
+        else
+            export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$toolchain/lib"
+        fi
+    done
+fi
+
 eval $(gpg-agent --daemon --allow-preset-passphrase 2>/dev/null)
 export GPG_TTY="$TTY"
 
