@@ -23,6 +23,7 @@ alias xelatexmk="latexmk -e '\$pdflatex=\"xelatex\"' -pdf"
 alias music='ncmpcpp'
 alias sshfs='sshfs -o reconnect'
 alias nvlc='vlc --intf=ncurses'
+alias weather='curl wttr.in'
 
 if $MACOS; then
     alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
