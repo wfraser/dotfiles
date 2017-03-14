@@ -91,11 +91,7 @@ fi
 export EDITOR="/usr/bin/vim"
 
 if [ $HOST = "odin" ]; then
-    export PATH="$PATH:/usr/local/bin:/opt/java/bin:/home/wfraser/bin:/home/wfraser/shellscripts:/home/wfraser/.gem/ruby/2.0.0/bin"
-fi
-
-if [ -d "$HOME/.cargo/bin" ]; then
-    export PATH="$PATH:$HOME/.cargo/bin"
+    export PATH="$PATH:/home/wfraser/bin:/home/wfraser/shellscripts"
 fi
 
 eval $(gpg-agent --daemon --allow-preset-passphrase 2>/dev/null)
