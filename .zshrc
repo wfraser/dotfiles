@@ -1,5 +1,3 @@
-source /etc/profile
-
 MACOS=false
 if [ $(uname -s) = "Darwin" ]; then
     MACOS=true
