@@ -6,6 +6,12 @@ fi
 if [ $HOST = "wfraser-mbp.corp.dropbox.com" ]; then
     # pull in some environment variables saved here
     source ~/.bash_profile
+
+    function android_versions_with() {
+        pushd ~/src/xplat >/dev/null
+        git tag --contains $1 | awk -F/ '/dbapp-android/{print $2}' | sort -t. -k1,1n -k2,2n -k3,3n
+        popd >/dev/null
+    }
 fi
 
 alias vi="vim"
@@ -153,3 +159,6 @@ bindkey '^[[3~' delete-char
 if [ -x "$HOME/reminders" ]; then
     $HOME/reminders
 fi
+
+# added by travis gem
+[ -f /Users/wfraser/.travis/travis.sh ] && source /Users/wfraser/.travis/travis.sh
