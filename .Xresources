@@ -23,6 +23,13 @@ URxvt*scrollTtyKeypress: true
     URxvt.boldFont: xft:Inconsolata:size=15:style=bold
     URxvt.italicFont: xft:Inconsolata:size=15:style=italic
     URxvt.boldItalicFont: xft:Inconsolata:size=15:style=bolditalic
+#elif HEIGHT > 1200
+! meant for virtual machines on wfraser-mbp main screen, which run at 2560x1600
+    Xft.dpi: 155
+    URxvt.font: xft:Inconsolata:size=11
+    URxvt.boldFont: xft:Inconsolata:size=11:style=bold
+    URxvt.italicFont: xft:Inconsolata:size=11:style=italic
+    URxvt.boldItalicFont: xft:Inconsolata:size=11:style=bolditalic
 #else
     URxvt.font: xft:Dina:size=9
     URxvt.boldFont: xft:Dina:size=9:style=bold
