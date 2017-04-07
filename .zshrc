@@ -9,7 +9,7 @@ if [ $HOST = "wfraser-mbp.corp.dropbox.com" ]; then
 
     function android_versions_with() {
         pushd ~/src/xplat >/dev/null
-        git tag --contains $1 | awk -F/ '/dbapp-android/{print $2}' | sort -t. -k1,1n -k2,2n -k3,3n
+        git tag --contains $1 | awk -F/ '/dbapp-android/{print $2}' | sort -t. -k1,1nr -k2,2nr -k3,3nr
         popd >/dev/null
     }
 fi
