@@ -43,6 +43,15 @@ hi ColorColumn ctermbg=234
 "hi Normal ctermbg=None
 "syn off
 
+" GUI
+"set guifont=Monospace\ 9
+"set guifont=DejaVu\ Sans\ Mono\ 9
+set guifont=Dina\ 9
+set guioptions+=c   " don't pop dialogs in separate windows
+set guioptions-=e   " use text-mode tab pages
+set guioptions-=m   " menu bar off
+set guioptions-=T   " Toolbar off
+
 " Editor settings
 set autoindent
 set smartindent
