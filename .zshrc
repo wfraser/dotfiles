@@ -161,4 +161,4 @@ if [ -x "$HOME/reminders" ]; then
 fi
 
 # added by travis gem
-[ -f /Users/wfraser/.travis/travis.sh ] && source /Users/wfraser/.travis/travis.sh
+[ -f /Users/wfraser/.travis/travis.sh ] && source /Users/wfraser/.travis/travis.sh || true
