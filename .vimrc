@@ -41,6 +41,9 @@ hi ColorColumn ctermbg=234
 "set cc=0
 "hi EndOfBuffer ctermbg=None ctermfg=None
 "hi Normal ctermbg=None
+"set nottyfast
+"set noshowcmd
+"set noruler
 "syn off
 
 " GUI
