@@ -95,7 +95,7 @@ function allstat() {
 }
 
 if [ ! -z $(grep '^/dev/ttyS' <<<$TTY) ]; then
-    resize
+    eval $(resize)
 fi
 
 export EDITOR="/usr/bin/vim"
@@ -116,6 +116,12 @@ if [ -d $HOME/.multirust/toolchains ]; then
             export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$toolchain/lib"
         fi
     done
+
+    if $MACOS; then
+        export DYLD_LIBRARY_PATH=$(echo $DYLD_LIBRARY_PATH | sed -e 's/^://')
+    else
+        export LD_LIBRARY_PATH=$(echo $LD_LIBRARY_PATH | sed -e 's/^://')
+    fi
 fi
 
 eval $(gpg-agent --daemon --allow-preset-passphrase 2>/dev/null)
