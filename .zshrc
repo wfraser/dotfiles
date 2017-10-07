@@ -32,7 +32,7 @@ alias nvlc='vlc --intf=ncurses'
 alias weather='curl wttr.in'
 alias isodate='date +"%Y-%m-%dT%H:%M:%S%z"'
 alias gcane="git commit --amend --no-edit"
-alias human="awk 'BEGIN{split(\"kMGTE\", p, \"\")} {i=0; while(\$1>1024){\$1/=1024; i++} print \$1,p[i]}'"
+alias human="awk 'BEGIN{split(\"kMGTE\", p, \"\")} {i=0; while(\$1>=1024){\$1/=1024; i++} print \$1,p[i]}'"
 
 if $MACOS; then
     alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
