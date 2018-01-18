@@ -1,0 +1,2 @@
+# replace Ctrl-A with Ctrl-O
+escape ^Bb
