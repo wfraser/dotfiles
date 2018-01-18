@@ -8,10 +8,11 @@ let maplocalleader = "\\"
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " List of plugins:
 Plugin 'rust-lang/rust.vim'
+Plugin 'udalov/kotlin-vim'
 
 call vundle#end()
 filetype plugin indent on

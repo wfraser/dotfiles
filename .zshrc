@@ -54,7 +54,7 @@ fi
 
 alias make="make -j$((ncpus + 1))"
 
-if [ "$HOST" = "odin" ]; then
+if [ "$HOST" = "odin.home.codewise.org" ]; then
     alias dstat='dstat -cdnmgy -N ethx0,ethi0'
 elif [ "$HOST" = "sfo-arch1" ]; then
     alias dstat='dstat -cdnmgy -N eth0,eth1'
@@ -100,7 +100,7 @@ fi
 
 export EDITOR="/usr/bin/vim"
 
-if [ $HOST = "odin" ]; then
+if [ $HOST = "odin" ] || [ $HOST = "odin.home.codewise.org" ]; then
     export PATH="$PATH:/home/wfraser/bin:/home/wfraser/shellscripts"
 fi
 
