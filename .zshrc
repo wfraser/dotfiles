@@ -132,7 +132,7 @@ setopt HIST_IGNORE_SPACE
 
 setopt PROMPT_SUBST
 
-# The following lines were added by compinstall
+autoload -Uz compinit promptinit vcs_info
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete
@@ -144,12 +144,27 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/wfraser/.zshrc'
 zstyle ':completion::complete:*' use-cache 1
+zstyle ':vcs_info:*' actionformats \
+    ' %F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f'
+zstyle ':vcs_info:*' formats \
+    ' %F{5}[%F{2}%b%F{5}]%f'
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
-autoload -Uz compinit promptinit
+zstyle ':vcs_info:*' enable git cvs svn
+
 compinit
 promptinit
 
-prompt walters
+vcs_info_wrapper() {
+    vcs_info
+    if [ -n "$vcs_info_msg_0_" ]; then
+        echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+
+#prompt walters
+PROMPT=$'%B%(?..[%?] )%b%n@%U%m%u$(vcs_info_wrapper)%# '
+RPROMPT="%F{${1:-green}}%~%f"
 
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
