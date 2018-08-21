@@ -104,7 +104,11 @@ fi
 export EDITOR="/usr/bin/vim"
 
 if [ $HOST = "odin" ] || [ $HOST = "odin.home.codewise.org" ]; then
-    export PATH="$PATH:/home/wfraser/bin:/home/wfraser/shellscripts"
+    export PATH="$PATH:/home/wfraser/shellscripts"
+fi
+
+if [ -d $HOME/bin ]; then
+    export PATH="$PATH:$HOME/bin"
 fi
 
 if [ -d $HOME/.cargo/bin ]; then
