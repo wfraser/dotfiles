@@ -187,7 +187,7 @@ bindkey '^[[4~' vi-end-of-line
 bindkey '^[[F' vi-end-of-line
 bindkey '^[[3~' delete-char
 
-[ -x $(which reminders) ] && [ -f ~/reminders.conf ] && reminders ~/reminders.conf
+[ -x "$(which reminders)" ] && [ -f ~/reminders.conf ] && reminders ~/reminders.conf
 
 # added by travis gem
 [ -f /Users/wfraser/.travis/travis.sh ] && source /Users/wfraser/.travis/travis.sh || true
