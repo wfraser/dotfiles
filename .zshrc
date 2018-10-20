@@ -49,6 +49,22 @@ function goto() {
     fi
 }
 
+function dbx() {
+    opts=(-v --progress --exclude-if-present .rclone_ignore --transfers=10 --track-renames)
+    op=$1
+    [ "$op" = "" ] || shift
+    if [ "$op" = "pull" ]; then
+        rclone sync dropbox: ~/dropbox ${opts[@]} $@
+    elif [ "$op" = "push" ]; then
+        rclone sync ~/dropbox dropbox: ${opts[@]} $@
+    elif [ "$op" = "check" ]; then
+        rclone check dropbox: ~/dropbox ${opts[@]} $@
+    else
+        echo "dbx <pull|push|check>"
+        return 1
+    fi
+}
+
 if $MACOS; then
     ncpus=$(sysctl -n hw.ncpu)
 else
