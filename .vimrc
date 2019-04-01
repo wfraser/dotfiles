@@ -88,3 +88,8 @@ endfun
 "map <C-A> :exe "Cinfo args" <CR>
 "map <C-X> :exe "Cfoldvar " . line(".") <CR>
 "vmap <C-X> <Esc> :exe "Cfoldvar " . Get_visual_selection() <CR>
+
+set printoptions=number:y,paper:letter,left:5pc
+set printfont=courier:h8
+
+autocmd FileType go setlocal noexpandtab

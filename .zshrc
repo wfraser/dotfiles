@@ -53,12 +53,14 @@ function dbx() {
     opts=(-v --progress --exclude-if-present .rclone_ignore --transfers=10 --track-renames)
     op=$1
     [ "$op" = "" ] || shift
+    dir=$1
+    [ "$dir" = "" ] || shift
     if [ "$op" = "pull" ]; then
-        rclone sync dropbox: ~/dropbox ${opts[@]} $@
+        rclone sync dropbox:$dir ~/dropbox/$dir ${opts[@]} $@
     elif [ "$op" = "push" ]; then
-        rclone sync ~/dropbox dropbox: ${opts[@]} $@
+        rclone sync ~/dropbox/$dir dropbox:$dir ${opts[@]} $@
     elif [ "$op" = "check" ]; then
-        rclone check dropbox: ~/dropbox ${opts[@]} $@
+        rclone check dropbox:$dir ~/dropbox/$dir ${opts[@]} $@
     else
         echo "dbx <pull|push|check>"
         return 1
