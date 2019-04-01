@@ -40,8 +40,8 @@ hi ColorColumn ctermbg=234
 " For slow terminals:
 "set t_Co=8
 "set cc=0
-"hi EndOfBuffer ctermbg=None ctermfg=None
-"hi Normal ctermbg=None
+hi EndOfBuffer ctermbg=None ctermfg=None
+hi Normal ctermbg=None
 "set nottyfast
 "set noshowcmd
 "set noruler
