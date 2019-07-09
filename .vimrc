@@ -67,6 +67,8 @@ set backspace=indent,eol,start
 
 set modeline
 
+set clipboard=exclude:screen\\\|putty.* " prevent vim from trying to connect to X from console
+
 function! Get_visual_selection()
     let l = getline("'<")
     let col1 = getpos("'<")[2]
