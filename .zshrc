@@ -12,6 +12,12 @@ if [ $HOST = "wfraser-mbp.corp.dropbox.com" ]; then
         git tag --contains $1 | awk -F/ '/dbapp-android/{print $2}' | sort -t. -k1,1nr -k2,2nr -k3,3nr
         popd >/dev/null
     }
+
+    function mp_versions_with() {
+        pushd ~/src/server >/dev/null
+        git branch --remote --contains $1 'origin/mp/*'
+        popd >/dev/null
+    }
 fi
 
 alias vi="vim"
