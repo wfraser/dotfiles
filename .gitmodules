@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/kotlin-vim"]
 	path = .vim/bundle/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim.git
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim
