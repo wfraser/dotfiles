@@ -1,3 +1,6 @@
 [submodule "peda"]
 	path = peda
 	url = https://github.com/longld/peda.git
+[submodule ".vim/bundle/kotlin-vim"]
+	path = .vim/bundle/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim.git
