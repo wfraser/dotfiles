@@ -66,6 +66,7 @@ set expandtab
 set backspace=indent,eol,start
 
 set modeline
+set modelines=5
 
 set clipboard=exclude:screen\\\|putty.* " prevent vim from trying to connect to X from console
 
