@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim
+[submodule ".vim/bundle/rust.vim"]
+    path = .vim/bundle/rust.vim
+    url = https://github.com/rust-lang/rust.vim.git
