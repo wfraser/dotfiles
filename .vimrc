@@ -2,8 +2,9 @@ if &compatible
     set nocompatible
 endif
 
-let mapleader = "-"
-let maplocalleader = "\\"
+" Splits just like tmux, but with Ctrl-W instead of Ctrl-A
+nnoremap <C-w><Bar> <C-w>v<C-w>l
+nnoremap <C-w>- <C-w>s<C-w>j
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
