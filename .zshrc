@@ -38,6 +38,8 @@ alias nvlc='vlc --intf=ncurses'
 alias isodate='date +"%Y-%m-%dT%H:%M:%S%z"'
 alias gcane="git commit --amend --no-edit"
 alias human="awk 'BEGIN{split(\"kMGTPE\", p, \"\")} {i=0; while(\$1>=1024){\$1/=1024; i++} print \$1,p[i]}'"
+alias sleepnoise="sox -c2 -n -d synth brownnoise treble -20 gain -5"
+alias listen="sox --input-buffer 8192 --buffer 32 -d -d"
 
 if $MACOS; then
     alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
@@ -71,6 +73,10 @@ function dbx() {
         echo "dbx <pull|push|check>"
         return 1
     fi
+}
+
+function cargol() {
+    cargo --color=always $@ |& less -R
 }
 
 if $MACOS; then
