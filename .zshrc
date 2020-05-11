@@ -58,7 +58,7 @@ function goto() {
 }
 
 function dbx() {
-    opts=(-v --progress --exclude-if-present .rclone_ignore --transfers=10 --track-renames)
+    opts=(-v --progress --exclude-if-present .rclone_ignore --exclude /Vault/ --transfers=10 --track-renames)
     op=$1
     [ "$op" = "" ] || shift
     dir=$1
@@ -88,7 +88,7 @@ fi
 alias make="make -j$((ncpus + 1))"
 
 if [ "$HOST" = "odin.home.codewise.org" ]; then
-    alias dstat='dstat -cdnmgy -N ethx0,ethi0'
+    alias dstat='dstat -cdnmgy -N ethx0,ethi0,ethi1'
 elif [ "$HOST" = "sfo-arch1" ]; then
     alias dstat='dstat -cdnmgy -N eth0,eth1'
 else
