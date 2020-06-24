@@ -5,3 +5,5 @@
 	plog = log --graph --pretty=format:\\\"%C(yellow)%h%x20%C(green)%an%x20%Creset%s\\\"
 [push]
 	default = simple
+[pull]
+	ff = only
