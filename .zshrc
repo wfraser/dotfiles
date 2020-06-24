@@ -75,8 +75,14 @@ function dbx() {
     fi
 }
 
+# cargo+less
 function cargol() {
     cargo --color=always $@ |& less -R
+}
+
+# ripgrep+less
+function rgl() {
+    rg -p $@ |& less -R
 }
 
 if $MACOS; then
@@ -132,6 +138,7 @@ if [ ! -z $(grep '^/dev/ttyS' <<<$TTY) ]; then
 fi
 
 export EDITOR="/usr/bin/vim"
+export VISUAL=$EDITOR
 
 if [ $HOST = "odin" ] || [ $HOST = "odin.home.codewise.org" ]; then
     export PATH="$PATH:/home/wfraser/shellscripts"
