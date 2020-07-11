@@ -159,6 +159,7 @@ if [ -d $HOME/.multirust/toolchains ]; then
         else
             export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$toolchain/lib"
         fi
+        export RUSTFLAGS="$RUSTFLAGS -L$toolchain/lib"
     done
 
     if $MACOS; then
