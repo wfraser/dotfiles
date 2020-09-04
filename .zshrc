@@ -77,7 +77,9 @@ function dbx() {
 
 # cargo+less
 function cargol() {
-    cargo --color=always $@ |& less -R
+    cmd=$1
+    shift
+    cargo $cmd --color=always $@ |& less -R
 }
 
 # ripgrep+less
