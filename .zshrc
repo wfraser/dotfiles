@@ -58,7 +58,7 @@ function goto() {
 }
 
 function dbx() {
-    opts=(-v --progress --exclude-if-present .rclone_ignore --exclude /Vault/ --transfers=10 --track-renames)
+    opts=(-v --progress --exclude /Vault/ --exclude /backups/ --exclude /src/trip/ --transfers=10 --track-renames)
     op=$1
     [ "$op" = "" ] || shift
     dir=$1
