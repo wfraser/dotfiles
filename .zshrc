@@ -154,23 +154,6 @@ if [ -d $HOME/.cargo/bin ]; then
     export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
-if [ -d $HOME/.multirust/toolchains ]; then
-    for toolchain in $HOME/.multirust/toolchains/*; do
-        if $MACOS; then
-            export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$toolchain/lib"
-        else
-            export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$toolchain/lib"
-        fi
-        export RUSTFLAGS="$RUSTFLAGS -L$toolchain/lib"
-    done
-
-    if $MACOS; then
-        export DYLD_LIBRARY_PATH=$(echo $DYLD_LIBRARY_PATH | sed -e 's/^://')
-    else
-        export LD_LIBRARY_PATH=$(echo $LD_LIBRARY_PATH | sed -e 's/^://')
-    fi
-fi
-
 eval $(gpg-agent --daemon --allow-preset-passphrase 2>/dev/null)
 export GPG_TTY="$TTY"
 
