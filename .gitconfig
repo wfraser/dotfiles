@@ -7,3 +7,5 @@
 	default = current
 [pull]
 	ff = only
+[dbx]
+	messagedisplayversion = 1
