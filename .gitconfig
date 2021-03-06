@@ -5,6 +5,7 @@
 	plog = log --graph --pretty=format:\\\"%C(yellow)%h%x20%C(green)%an%x20%Creset%s\\\"
 [push]
 	default = current
+[pull]
 	ff = only
 [core]
 	excludesfile = /Users/wfraser/.gitignore_global
