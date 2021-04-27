@@ -3,7 +3,7 @@ if [ $(uname -s) = "Darwin" ]; then
     MACOS=true
 fi
 
-if [ $HOST = "wfraser-mbp.corp.dropbox.com" ]; then
+if [ $HOST = "wfraser-dbx-mbp.corp.dropbox.com" ]; then
     # pull in some environment variables saved here
     source ~/.bash_profile
 
