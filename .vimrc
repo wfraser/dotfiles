@@ -7,7 +7,11 @@ nnoremap <C-w><Bar> <C-w>v<C-w>l
 nnoremap <C-w>- <C-w>s<C-w>j
 
 " Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
+if has("win32")
+    set rtp+=$HOME\vimfiles\bundle\Vundle.vim
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+endif
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
