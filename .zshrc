@@ -214,7 +214,7 @@ bindkey '^[[4~' vi-end-of-line
 bindkey '^[[F' vi-end-of-line
 bindkey '^[[3~' delete-char
 
-if !$MACOS; then
+if ! $MACOS && [ ! -z $DISPLAY ]; then
     # set caps lock to escape
     xmodmap -e 'clear Lock'
     xmodmap -e 'keycode 0x42 = Escape'
