@@ -189,6 +189,12 @@ zstyle ':vcs_info:*' enable git cvs svn
 compinit
 promptinit
 
+if [ $HOST = "wfraser-dbx" ]; then
+    PROMPT_PREFIX="%F{cyan}DEV%f "
+else
+    PROMPT_PREFIX=""
+fi
+
 vcs_info_wrapper() {
     vcs_info
     if [ -n "$vcs_info_msg_0_" ]; then
@@ -197,7 +203,7 @@ vcs_info_wrapper() {
 }
 
 #prompt walters
-PROMPT=$'%B%(?..[%?] )%b%n@%U%m%u$(vcs_info_wrapper)%# '
+PROMPT=$'$PROMPT_PREFIX%B%(?..[%?] )%b%n@%U%m%u$(vcs_info_wrapper)%# '
 RPROMPT="%F{${1:-green}}%~%f"
 
 # End of lines added by compinstall
