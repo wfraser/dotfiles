@@ -98,7 +98,7 @@ fi
 alias make="make -j$((ncpus + 1))"
 
 if [ "$HOST" = "odin.home.codewise.org" ]; then
-    alias dstat='dstat -cdnmgy -N ethx0,ethi0,ethi1'
+    alias dstat='dstat -cdnmgy -N etherx0'
 elif [ "$HOST" = "blackwall" ]; then
     alias dstat='dstat -cdnmgy -N ether0,ether1,ether2,ether3,ether4,ether5'
 elif [ "$HOST" = "sfo-arch1" ]; then
