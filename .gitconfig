@@ -11,3 +11,5 @@
 	excludesfile = /Users/wfraser/.gitignore_global
 [dbx]
 	messagedisplayversion = 1
+[includeIf "hasconfig:remote.*.url:git@github.com:dropbox-internal/*"]
+    path = .gitconfig-dbx
