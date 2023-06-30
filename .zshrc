@@ -189,7 +189,7 @@ zstyle ':vcs_info:*' enable git cvs svn
 compinit
 promptinit
 
-if [ $HOST = "wfraser-dbx" ]; then
+if [ ! -z $(hostname -f | grep '\.dev\.corp\.dropbox\.com$' ) ]; then
     PROMPT_PREFIX="%F{cyan}DEV%f "
 else
     PROMPT_PREFIX=""
