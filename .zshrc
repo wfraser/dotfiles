@@ -20,6 +20,15 @@ if [ $HOST = "C02RM152G8WL" ] || [ $HOST = "VCQ4Y0C6XV" ]; then
         git branch --remote --contains $1 'origin/mp/*'
         popd >/dev/null
     }
+
+    function gh() {
+        if [[ "$1" == "dbx" ]] && [[ "$2" == "land" ]]; then
+            shift 2
+            gh dbx land --keep-branch=False $@
+        else
+            command gh $@
+        fi
+    }
 fi
 
 alias vi="vim"
