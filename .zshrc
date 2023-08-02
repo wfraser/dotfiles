@@ -24,7 +24,7 @@ if [ $HOST = "C02RM152G8WL" ] || [ $HOST = "VCQ4Y0C6XV" ] || [ $HOST = "wfraser-
     function gh() {
         if [[ "$1" == "dbx" ]] && [[ "$2" == "land" ]]; then
             shift 2
-            gh dbx land --keep-branch=False $@
+            command gh dbx land --keep-branch=False $@
         else
             command gh $@
         fi

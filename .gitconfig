@@ -3,6 +3,8 @@
 	email = wfraser@codewise.org
 [alias]
 	plog = log --graph --pretty=format:\\\"%C(yellow)%h%x20%C(green)%an%x20%Creset%s\\\"
+    mylog = log --first-parent
+    mergemaster = pull --no-ff origin master:master
 [push]
 	default = current
 [pull]
