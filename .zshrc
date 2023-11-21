@@ -170,6 +170,11 @@ fi
 eval $(gpg-agent --daemon --allow-preset-passphrase 2>/dev/null)
 export GPG_TTY="$TTY"
 
+if [ -z $SSH_AUTH_SOCK ]; then
+    eval $(ssh-agent -s)
+    ssh-add ~/.ssh/id_ed25519
+fi
+
 # Commands that start with a space are excluded from history! :)
 setopt HIST_IGNORE_SPACE
 
