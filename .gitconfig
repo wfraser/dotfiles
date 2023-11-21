@@ -1,6 +1,6 @@
 [user]
-	name = William R. Fraser
-	email = wfraser@codewise.org
+	name = Bill Fraser
+	email = bill@wfraser.dev
 [alias]
 	plog = log --graph --pretty=format:\\\"%C(yellow)%h%x20%C(green)%an%x20%Creset%s\\\"
     mylog = log --first-parent
@@ -15,3 +15,5 @@
 	messagedisplayversion = 1
 [includeIf "hasconfig:remote.*.url:git@github.com:dropbox-internal/*"]
     path = .gitconfig-dbx
+[init]
+	defaultBranchName = master
