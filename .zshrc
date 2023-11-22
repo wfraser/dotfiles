@@ -152,7 +152,7 @@ if [ ! -z $(grep '^/dev/ttyS' <<<$TTY) ]; then
     eval $(resize)
 fi
 
-export EDITOR="/usr/bin/vim"
+export EDITOR=vim
 export VISUAL=$EDITOR
 
 if [ $HOST = "odin" ] || [ $HOST = "odin.home.codewise.org" ]; then

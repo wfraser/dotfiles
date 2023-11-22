@@ -18,6 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 " List of plugins:
 Plugin 'rust-lang/rust.vim'
 Plugin 'udalov/kotlin-vim'
+Plugin 'LnL7/vim-nix'
 
 call vundle#end()
 filetype plugin indent on
