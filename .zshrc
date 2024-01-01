@@ -106,14 +106,20 @@ fi
 
 alias make="make -j$((ncpus + 1))"
 
-if [ "$HOST" = "odin.home.codewise.org" ]; then
-    alias dstat='dstat -cdnmgy -N etherx0'
-elif [ "$HOST" = "blackwall" ]; then
-    alias dstat='dstat -cdnmgy -N ether0,ether1,ether2,ether3,ether4,ether5'
-elif [ "$HOST" = "sfo-arch1" ]; then
-    alias dstat='dstat -cdnmgy -N eth0,eth1'
+if which dool >/dev/null; then
+    dstat=dool
 else
-    alias dstat='dstat -cdnmgy'
+    dstat=dstat
+fi
+
+if [ "$HOST" = "odin.home.codewise.org" ]; then
+    alias dstat="$dstat -cdnmgy -N etherx0"
+elif [ "$HOST" = "blackwall" ]; then
+    alias dstat="$dstat -cdnmgy -N ether0,ether1,ether2,ether3,ether4,ether5"
+elif [ "$HOST" = "sfo-arch1" ]; then
+    alias dstat="$dstat -cdnmgy -N eth0,eth1"
+else
+    alias dstat="$dstat -cdnmgy"
 fi
 
 function bx() {
