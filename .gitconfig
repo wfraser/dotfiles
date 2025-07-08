@@ -17,3 +17,5 @@
     path = .gitconfig-dbx
 [init]
 	defaultBranchName = master
+[url "git@github.com:wfraser/"]
+	insteadOf = https://github.com/wfraser/
