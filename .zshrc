@@ -3,7 +3,7 @@ if [ $(uname -s) = "Darwin" ]; then
     MACOS=true
 fi
 
-if [ $HOST = "C02RM152G8WL" ] || [ $HOST = "VCQ4Y0C6XV" ] || [ $HOST = "wfraser-dbx" ]; then
+if [ $HOST = "MM40Y7QJ97" ] || [ $HOST = "VCQ4Y0C6XV" ]; then
     if [ -f ~/.bash_profile ]; then
         # pull in some environment variables saved here
         source ~/.bash_profile
