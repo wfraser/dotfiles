@@ -34,10 +34,16 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-x spawn dmenu_run
-hc keybind $Mod-Return spawn urxvt
-#hc keybind $Mod-Return spawn uxterm -rv
-hc keybind $Mod-f spawn xfe
+hc keybind $Mod-f spawn pcmanfm
 hc keybind $Mod-w spawn firefox
+
+if which urxvt-256color; then
+    hc keybind $Mod-Return spawn urxvt-256color
+elif which urxvt; then
+    hc keybind $Mod-Return spawn urxvt
+else
+    hc keybind $Mod-Return spawn xterm
+fi
 
 hc keybind XF86AudioLowerVolume spawn amixer -q set Master 1- unmute
 hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 1+ unmute
